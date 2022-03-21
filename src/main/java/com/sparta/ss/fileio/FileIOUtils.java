@@ -13,6 +13,7 @@ public class FileIOUtils {
             bufferedReader.readLine();
             String line = bufferedReader.readLine();
             FileWriter writer = new FileWriter("src/main/java/com/sparta/ss/fileio/ValidEntries.csv");
+//            FileWriter corruptedWriter = new FileWriter("src/main/java/com/sparta/ss/fileio/CorruptedEntries.csv");
             while (line != null) {
                 String[] employeeData = line.split(",");
                 EmployeeDTO employeeDTO = new EmployeeDTO(
@@ -27,35 +28,49 @@ public class FileIOUtils {
                         employeeData[8],
                         employeeData[9]
                 );
+//                FileWriter writer = new FileWriter("src/main/java/com/sparta/ss/fileio/ValidEntries.csv");
+                System.out.println(employeeDTO);
+                line = bufferedReader.readLine();
                 writer.write(String.valueOf(employeeDTO));
                 writer.write("\n");
-                FileReader validReader = new FileReader("src/main/java/com/sparta/ss/fileio/ValidEntries.csv");
-                BufferedReader validBufferedReader = new BufferedReader(validReader);
-                validBufferedReader.readLine();
-                String validLine = validBufferedReader.readLine();
-                FileWriter corruptedWriter = new FileWriter("src/main/java/com/sparta/ss/fileio/CorruptedEntries.csv");
-                while (validLine != null) {
-                    String[] validEmployeeData = validLine.split(",");
-                    System.out.println(Integer.parseInt(String.valueOf(validEmployeeData[0])));
-                    if (Integer.parseInt(String.valueOf(validEmployeeData[0])) == employeeDTO.getEmpID()) {
-                        corruptedWriter.write(String.valueOf(employeeDTO));
-                        corruptedWriter.write("\n");
-                        System.out.println("corrupted");
-                    } else {
-                        writer.write(String.valueOf(employeeDTO));
-                        writer.write("\n");
-                        System.out.println("valid");
-                    }
-                    System.out.println(employeeDTO);
-                    validLine = validBufferedReader.readLine();
-                    line = bufferedReader.readLine();
-                }
-//                if (employeeDTO.getEmpID()) {
-//                    addFileCorrupted
-//                } else {
-//                    addFileGood
+//                FileReader validReader = new FileReader(fileName);
+//                BufferedReader validBufferedReader = new BufferedReader(validReader);
+//                validBufferedReader.readLine();
+//                String validLine = validBufferedReader.readLine();
+//                int counter = 0;
+//                while (validLine != null) {
+//                    String[] validEmployeeData = validLine.split(",");
+//                    EmployeeDTO validEmployeeDTO = new EmployeeDTO(
+//                            validEmployeeData[0],
+//                            validEmployeeData[1],
+//                            validEmployeeData[2],
+//                            validEmployeeData[3],
+//                            validEmployeeData[4],
+//                            validEmployeeData[5],
+//                            validEmployeeData[6],
+//                            validEmployeeData[7],
+//                            validEmployeeData[8],
+//                            validEmployeeData[9]
+//                    );
+////
+//                    if (employeeDTO.getEmpID() == validEmployeeDTO.getEmpID()) {
+//                        System.out.println("uncorrupted");
+//                        System.out.println(employeeDTO.getEmpID());
+//                        counter++;
+//                        System.out.println(counter);
+//                        if (counter > 1) {
+//                            System.out.println(String.valueOf(employeeDTO));
+//                            corruptedWriter.write(String.valueOf(employeeDTO));
+//                            corruptedWriter.write("\n");
+//                            System.out.println("corrupted er gerw gwreg er greg werg ergregre werg wreg erg erg reg werg ewg ");
+//                        }
+//                    } else {
+//                        System.out.println("hello");
+//                    }
+////                    System.out.println(employeeDTO);
+//                    validLine = validBufferedReader.readLine();
+////                    line = bufferedReader.readLine();
 //                }
-//                line = bufferedReader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
