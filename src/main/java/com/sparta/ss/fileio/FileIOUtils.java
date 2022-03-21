@@ -29,13 +29,33 @@ public class FileIOUtils {
                 );
                 writer.write(String.valueOf(employeeDTO));
                 writer.write("\n");
+                FileReader validReader = new FileReader("src/main/java/com/sparta/ss/fileio/ValidEntries.csv");
+                BufferedReader validBufferedReader = new BufferedReader(validReader);
+                validBufferedReader.readLine();
+                String validLine = validBufferedReader.readLine();
+                FileWriter corruptedWriter = new FileWriter("src/main/java/com/sparta/ss/fileio/CorruptedEntries.csv");
+                while (validLine != null) {
+                    String[] validEmployeeData = validLine.split(",");
+                    System.out.println(Integer.parseInt(String.valueOf(validEmployeeData[0])));
+                    if (Integer.parseInt(String.valueOf(validEmployeeData[0])) == employeeDTO.getEmpID()) {
+                        corruptedWriter.write(String.valueOf(employeeDTO));
+                        corruptedWriter.write("\n");
+                        System.out.println("corrupted");
+                    } else {
+                        writer.write(String.valueOf(employeeDTO));
+                        writer.write("\n");
+                        System.out.println("valid");
+                    }
+                    System.out.println(employeeDTO);
+                    validLine = validBufferedReader.readLine();
+                    line = bufferedReader.readLine();
+                }
 //                if (employeeDTO.getEmpID()) {
 //                    addFileCorrupted
 //                } else {
 //                    addFileGood
 //                }
-                System.out.println(employeeDTO);
-                line = bufferedReader.readLine();
+//                line = bufferedReader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
