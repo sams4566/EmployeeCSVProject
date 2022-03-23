@@ -32,11 +32,11 @@ public class FileIOUtils {
                 employees.add(employeeDTO);
                 line = bufferedReader.readLine();
             }
-//            System.out.println(employees.get(0).getEmpID());
-            ArrayList<EmployeeDTO> duplicates = new ArrayList<>();
-            int counter = 0;
-            duplicates.add(employees.get(0));
-            System.out.println(employees.size());
+
+            Filter.sortList(employees);
+            System.out.println(Filter.getDuplicateEntries());
+//            System.out.println(Filter.getValidatedEmployees());
+
 //            for (int i = 0; i < employees.size(); i++) {
 //                for (int j = 0; j < duplicates.size(); j++) {
 ////                    System.out.println(employees.get(i).getEmpID());
