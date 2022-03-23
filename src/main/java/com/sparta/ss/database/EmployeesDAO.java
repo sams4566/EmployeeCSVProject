@@ -27,8 +27,8 @@ public class EmployeesDAO {
                 System.out.println(resultSet.getString(5));
                 System.out.println(resultSet.getString(6));
                 System.out.println(resultSet.getString(7));
-                System.out.println(resultSet.getInt(8));
-                System.out.println(resultSet.getInt(9));
+                System.out.println(resultSet.getDate(8));
+                System.out.println(resultSet.getDate(9));
                 System.out.println(resultSet.getInt(10));
             }
         } catch (SQLException e) {
@@ -36,7 +36,7 @@ public class EmployeesDAO {
         }
     }
 
-    public void insert(int empID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, int dob, int dateOfJoining, int salary) {
+    public void insert(int empID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, Date dob, Date dateOfJoining, int salary) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.INSERT_INTO_DB);
             preparedStatement.setInt(1, empID);
@@ -46,8 +46,8 @@ public class EmployeesDAO {
             preparedStatement.setString(5, lastName);
             preparedStatement.setString(6, gender);
             preparedStatement.setString(7, email);
-            preparedStatement.setInt(8, dob);
-            preparedStatement.setInt(9, dateOfJoining);
+            preparedStatement.setDate(8, dob);
+            preparedStatement.setDate(9, dateOfJoining);
             preparedStatement.setInt(10, salary);
             preparedStatement.execute();
         } catch (SQLException e) {

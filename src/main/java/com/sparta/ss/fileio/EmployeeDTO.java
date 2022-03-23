@@ -1,5 +1,6 @@
 package com.sparta.ss.fileio;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -78,6 +79,11 @@ public class EmployeeDTO {
 
     public int getSalary() {
         return salary;
+    }
+
+    public Date getDobSql() {
+        Date date = Date.valueOf(dob);
+        return date;
     }
 
     @Override

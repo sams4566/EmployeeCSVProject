@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FileIOUtils {
-    static void readFile(String fileName) {
+    public static ArrayList readFile(String fileName) {
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             bufferedReader.readLine();
             String line = bufferedReader.readLine();
-            FileWriter writer = new FileWriter("src/main/java/com/sparta/ss/fileio/ValidEntries.csv");
-            FileWriter corruptedWriter = new FileWriter("src/main/java/com/sparta/ss/fileio/CorruptedEntries.csv");
             ArrayList<EmployeeDTO> employees = new ArrayList<>();
             while (line != null) {
                 String[] employeeData = line.split(",");
@@ -52,9 +50,12 @@ public class FileIOUtils {
 //                    continue;
 //                }
 //            }
-            System.out.println(duplicates);
+//            System.out.println(duplicates);
+            return employees;
         } catch (IOException e) {
             e.printStackTrace();
+            ArrayList<EmployeeDTO> employees = new ArrayList<>();
+            return employees;
         }
     }
 }
