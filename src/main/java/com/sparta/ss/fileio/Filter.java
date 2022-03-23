@@ -1,6 +1,7 @@
 package com.sparta.ss.fileio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Filter {
 
@@ -9,9 +10,11 @@ public class Filter {
 
     public static void sortList(ArrayList<EmployeeDTO> employees) {
         for (EmployeeDTO employee : employees) {
-            if (employee.getEmpID() > 1){
+            if (Collections.frequency(employees, employee.getEmpID()) > 1){
                 duplicateEntries.add(employee);
-            } else validatedEmployees.add(employee);
+            } else {
+                validatedEmployees.add(employee);
+            }
         }
     }
 
