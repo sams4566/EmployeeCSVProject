@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+
+import static com.sparta.ss.fileio.CorruptionChecking.duplicates;
+import static com.sparta.ss.fileio.CorruptionChecking.validEmployees;
 
 public class FileIOUtils {
     public static ArrayList readFile(String fileName) {
@@ -14,7 +18,6 @@ public class FileIOUtils {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             bufferedReader.readLine();
             String line = bufferedReader.readLine();
-            ArrayList<EmployeeDTO> employees = new ArrayList<>();
             while (line != null) {
                 String[] employeeData = line.split(",");
                 EmployeeDTO employeeDTO = new EmployeeDTO(
@@ -29,19 +32,18 @@ public class FileIOUtils {
                         employeeData[8],
                         employeeData[9]
                 );
-                employees.add(employeeDTO);
+//                String[] employeeData = line.split(",");
+//                EmployeeDTO employeeDTO = new EmployeeDTO(employeeData);
+                CorruptionChecking.checkEmployee(employeeDTO);
                 line = bufferedReader.readLine();
             }
-//            System.out.println(employees.get(0).getEmpID());
-            ArrayList<EmployeeDTO> duplicates = new ArrayList<>();
-            int counter = 0;
-            duplicates.add(employees.get(0));
-            System.out.println(employees.size());
+            System.out.println(duplicates);
+            System.out.println(validEmployees);
 //            for (int i = 0; i < employees.size(); i++) {
-//                for (int j = 0; j < duplicates.size(); j++) {
+//                for (int j = 0; j < length; j++) {
 ////                    System.out.println(employees.get(i).getEmpID());
-//                    System.out.println(j);
-//                    if (duplicates.add(employees.get(i))) {
+////                    System.out.println(j);
+//                    if (duplicates.employees.get(i))) {
 //                        duplicates.add(employees.get(i));
 //                        counter++;
 //                        continue;
@@ -50,8 +52,7 @@ public class FileIOUtils {
 //                    continue;
 //                }
 //            }
-//            System.out.println(duplicates);
-            return employees;
+            return validEmployees;
         } catch (IOException e) {
             e.printStackTrace();
             ArrayList<EmployeeDTO> employees = new ArrayList<>();
