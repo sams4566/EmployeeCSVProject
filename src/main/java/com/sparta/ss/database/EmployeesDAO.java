@@ -4,7 +4,7 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class EmployeesDAO {
-    private Connection connection;
+    public static Connection connection;
     private Statement statement;
 
     public EmployeesDAO(Connection connection) {
@@ -36,9 +36,8 @@ public class EmployeesDAO {
         }
     }
 
-    public void insert(int empID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, Date dob, Date dateOfJoining, int salary) {
+    public void insert(PreparedStatement preparedStatement, int empID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, Date dob, Date dateOfJoining, int salary) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.INSERT_INTO_DB);
             preparedStatement.setInt(1, empID);
             preparedStatement.setString(2, namePrefix);
             preparedStatement.setString(3, firstName);
@@ -49,7 +48,7 @@ public class EmployeesDAO {
             preparedStatement.setDate(8, dob);
             preparedStatement.setDate(9, dateOfJoining);
             preparedStatement.setInt(10, salary);
-            preparedStatement.execute();
+            preparedStatement.addBatch();
         } catch (SQLException e) {
             e.printStackTrace();
         }
