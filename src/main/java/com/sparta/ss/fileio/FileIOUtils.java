@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 import static com.sparta.ss.fileio.CorruptionChecking.duplicates;
 import static com.sparta.ss.fileio.CorruptionChecking.validEmployees;
@@ -39,19 +37,6 @@ public class FileIOUtils {
             }
             System.out.println(duplicates);
             System.out.println(validEmployees);
-//            for (int i = 0; i < employees.size(); i++) {
-//                for (int j = 0; j < length; j++) {
-////                    System.out.println(employees.get(i).getEmpID());
-////                    System.out.println(j);
-//                    if (duplicates.employees.get(i))) {
-//                        duplicates.add(employees.get(i));
-//                        counter++;
-//                        continue;
-////                        System.out.println(duplicates);
-//                    }
-//                    continue;
-//                }
-//            }
             return validEmployees;
         } catch (IOException e) {
             e.printStackTrace();
