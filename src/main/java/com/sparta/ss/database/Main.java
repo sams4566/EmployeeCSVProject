@@ -10,8 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Connection connection = ConnectionManager.getConnection();
         EmployeesDAO employeesDAO = new EmployeesDAO(connection);
-        ArrayList<EmployeeDTO> employees = FileIOUtils.readFile("src/main/resources/EmployeeRecordsLarge.csv");
-        System.out.println(employees.stream().count());
+        ArrayList<EmployeeDTO> employees = FileIOUtils.readFile("src/main/resources/EmployeeRecords.csv");
         long timeStart = System.nanoTime();
         FilterDatabase.splitArrays(employees, employeesDAO);
         long timeEnd = System.nanoTime();

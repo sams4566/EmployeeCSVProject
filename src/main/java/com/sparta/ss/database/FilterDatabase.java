@@ -22,8 +22,6 @@ public class FilterDatabase {
                 employees4.add(employees.get(i));
             }
         }
-        System.out.println(employees1.stream().count());
-        System.out.println(employees2.stream().count());
         filterToDatabase(employees1, employees2, employees3, employees4, employeesDAO);
         return employees;
     }
