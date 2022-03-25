@@ -2,16 +2,12 @@ package com.sparta.ss.tests;
 
 import com.sparta.ss.fileio.CorruptionChecking;
 import com.sparta.ss.fileio.EmployeeDTO;
-import com.sparta.ss.fileio.FileIOUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import static com.sparta.ss.fileio.CorruptionChecking.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,8 +52,8 @@ public class Tests {
     }
 
     @Test
-    @DisplayName("Test that idDuplicate returns false if duplicate")
-    void testThatIdDuplicateReturnsFalseIfDuplicate() {
+    @DisplayName("Test that idDuplicate returns True if duplicate")
+    void testThatIdDuplicateReturnsTrueIfDuplicate() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         String[] employee2 = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
