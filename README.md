@@ -5,12 +5,12 @@ Before the data is entered into the database each data entry is checked for any 
 errors when entering into MySQL. The code for this project was made in Java and is a backend program.
 
 ## Corruption Checking
-- The below picture shows that there were 57 corrupted employee entries and 9934 valid employee entries within a CSV file: 
+- The below picture shows that there were 57 corrupted employee entries and 9943 valid employee entries within a CSV file: 
 
 ![Corruption Checking](https://github.com/sams4566/EmployeeCSVProject/blob/main/readme_photos/CorruptionChecking.png)
 
 ## Filtering to MySQL database
-- The below photo shows that the code takes 16 seconds to be filtered into a MySQL database. The time varies 
+- The below photo shows that the code takes 16 seconds to filter 65499 employees into a MySQL database. The time varies 
 however depending on the users CPU.
 
 ![Database Filtering](https://github.com/sams4566/EmployeeCSVProject/blob/main/readme_photos/DatabaseFiltering.png)
