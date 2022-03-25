@@ -3,13 +3,14 @@ package com.sparta.ss.fileio;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class CorruptionChecking {
     public static ArrayList<EmployeeDTO> corruptedEmployees = new ArrayList<>();
     public static ArrayList<EmployeeDTO> validEmployees = new ArrayList<>();
 
     public static void checkEmployee(EmployeeDTO employeeDTO) {
-        if (idDuplicate(employeeDTO, validEmployees) || emailDuplicate(employeeDTO, validEmployees) || genderIncorrect(employeeDTO)) {
+        if (idDuplicate(employeeDTO, validEmployees) || emailDuplicate(employeeDTO, validEmployees) || genderCorrect(employeeDTO)) {
             corruptedEmployees.add(employeeDTO);
         } else {
             validEmployees.add(employeeDTO);
@@ -34,13 +35,10 @@ public class CorruptionChecking {
         return false;
     }
 
-    public static boolean genderIncorrect(EmployeeDTO employeeDTO) {
-        String gender = "M";
-        System.out.println(gender);
-        System.out.println(employeeDTO.getGender());
-        if (employeeDTO.getGender() == gender) {
-            return true;
+    public static boolean genderCorrect(EmployeeDTO employeeDTO) {
+        if (Objects.equals(employeeDTO.getGender(), "M") || Objects.equals(employeeDTO.getGender(), "F")) {
+            return false;
         }
-        return false;
+        return true;
     }
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import static com.sparta.ss.fileio.CorruptionChecking.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,8 +48,9 @@ public class Tests {
     void testIfEmployeeDobIsEnteredCorrectlyIntoEmployeeDtoClass() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
+        employeeDTO.getDobSql().getClass();
 
-        assertEquals(employeeDTO.getEmpID(), 133641);
+        assertEquals(employeeDTO.getDobSql().getClass(), Date);
     }
 
     @Test
