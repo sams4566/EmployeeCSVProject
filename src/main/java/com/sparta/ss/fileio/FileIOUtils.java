@@ -5,8 +5,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import static com.sparta.ss.fileio.CorruptionChecking.duplicates;
+import static com.sparta.ss.fileio.CorruptionChecking.corruptedEmployees;
 import static com.sparta.ss.fileio.CorruptionChecking.validEmployees;
 
 public class FileIOUtils {
@@ -18,25 +19,13 @@ public class FileIOUtils {
             String line = bufferedReader.readLine();
             while (line != null) {
                 String[] employeeData = line.split(",");
-                EmployeeDTO employeeDTO = new EmployeeDTO(
-                        employeeData[0],
-                        employeeData[1],
-                        employeeData[2],
-                        employeeData[3],
-                        employeeData[4],
-                        employeeData[5],
-                        employeeData[6],
-                        employeeData[7],
-                        employeeData[8],
-                        employeeData[9]
-                );
-//                String[] employeeData = line.split(",");
-//                EmployeeDTO employeeDTO = new EmployeeDTO(employeeData);
+                System.out.println(Arrays.toString(employeeData));
+                EmployeeDTO employeeDTO = new EmployeeDTO(employeeData);
                 CorruptionChecking.checkEmployee(employeeDTO);
                 line = bufferedReader.readLine();
             }
-            System.out.println(duplicates);
-            System.out.println(validEmployees);
+            System.out.println("Number of Corrupted Employees: " + corruptedEmployees.stream().count());
+            System.out.println("Number of Valid Employees: " + validEmployees.stream().count());
             return validEmployees;
         } catch (IOException e) {
             e.printStackTrace();

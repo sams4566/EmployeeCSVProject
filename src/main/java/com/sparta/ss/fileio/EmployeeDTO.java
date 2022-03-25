@@ -28,17 +28,17 @@ public class EmployeeDTO {
         return date;
     }
 
-    public EmployeeDTO(String empID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, String dob, String dateOfJoining, String salary) {
-        this.empID = Integer.parseInt(String.valueOf(empID));
-        this.namePrefix = namePrefix;
-        this.firstName = firstName;
-        this.middleInitial = middleInitial;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.email = email;
-        this.dob = setDob(dob);
-        this.dateOfJoining = setDateOfJoining(dateOfJoining);
-        this.salary = Integer.parseInt(String.valueOf(salary));
+    public EmployeeDTO(String[] employeeData) {
+        this.empID = Integer.parseInt(String.valueOf(employeeData[0]));
+        this.namePrefix = employeeData[1];
+        this.firstName = employeeData[2];
+        this.middleInitial = employeeData[3];
+        this.lastName = employeeData[4];
+        this.gender = employeeData[5];
+        this.email = employeeData[6];
+        this.dob = setDob(employeeData[7]);
+        this.dateOfJoining = setDateOfJoining(employeeData[8]);
+        this.salary = Integer.parseInt(String.valueOf(employeeData[9]));
     }
 
     public int getEmpID() {
@@ -83,6 +83,11 @@ public class EmployeeDTO {
 
     public Date getDobSql() {
         Date date = Date.valueOf(dob);
+        return date;
+    }
+
+    public Date getDateOfJoiningSql() {
+        Date date = Date.valueOf(dateOfJoining);
         return date;
     }
 

@@ -36,10 +36,9 @@ public class DatabaseThread implements Runnable {
                         employee.getGender(),
                         employee.getEmail(),
                         employee.getDobSql(),
-                        employee.getDobSql(),
+                        employee.getDateOfJoiningSql(),
                         employee.getSalary()
                 );
-                System.out.println(employee.getEmpID());
             }
         }
         try {
