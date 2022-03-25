@@ -58,4 +58,10 @@ public class Tests {
         idDuplicate(employeeDTO2);
         assertFalse(idDuplicate(employeeDTO2));
     }
+    
+    @Test
+    @DisplayName("TestName")
+    void testName() {
+        assertEquals(1,1);
+    }
 }
