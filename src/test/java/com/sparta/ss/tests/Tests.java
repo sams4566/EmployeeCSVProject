@@ -64,8 +64,8 @@ public class Tests {
     }
 
     @Test
-    @DisplayName("Test that idDuplicate returns false if duplicate")
-    void testThatIdDuplicateReturnsFalseIfDuplicate() {
+    @DisplayName("Test that id Duplicate returns true if duplicate ID")
+    void testThatIdDuplicateReturnsTrueIfDuplicateId() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         String[] employee2 = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
@@ -74,6 +74,21 @@ public class Tests {
         validEmployees.add(employeeDTO);
         idDuplicate(employeeDTO2, validEmployees);
         assertTrue(idDuplicate(employeeDTO2, validEmployees));
+    }
+
+    @Test
+    @DisplayName("Test idDuplicate returns false if no duplicate ID")
+    void testIDDuplicateReturnsFalseForNoDuplicateId() {
+        String[] employee = new String[]{"123456", "Mr.", "Mujtaba", "M", "Moosavi", "M", "mm@hotmail.com", "12/12/2012", "1/12/2020", "23126"};
+        String[] employee2 = new String[]{"123457", "Mr.", "Sam", "M", "Moosavi", "M", "sam@hotmail.com", "12/1/2012", "4/12/2020", "23128"};
+        String[] employee3 = new String[]{"123458", "Mr.", "Nugat", "M", "Moosavi", "M", "nugat@hotmail.com", "12/1/2008", "4/12/2020", "23132"};
+        EmployeeDTO employeeDTO = new EmployeeDTO(employee);
+        EmployeeDTO employeeDTO2 = new EmployeeDTO(employee2);
+        EmployeeDTO employeeDTO3 = new EmployeeDTO(employee3);
+        ArrayList<EmployeeDTO> validEmployees = new ArrayList<>();
+        validEmployees.add(employeeDTO);
+        validEmployees.add(employeeDTO2);
+        Assertions.assertFalse(idDuplicate(employeeDTO3, validEmployees));
     }
 
     @Test
