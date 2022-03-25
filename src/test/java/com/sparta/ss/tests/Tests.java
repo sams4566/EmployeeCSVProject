@@ -40,28 +40,31 @@ public class Tests {
 
     @Test
     @DisplayName("Test if employee is entered correctly into EmployeeDTO class")
-    void testIfEmployeeIsEnteredCorrectlyIntoEmployeeDtoClass() {
+    void testIfEmployeeIdIsEnteredCorrectlyIntoEmployeeDtoClass() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
         assertEquals(employeeDTO.getEmpID(), 133641);
     }
 
     @Test
-    @DisplayName("Test that idDuplicate returns false")
-    void testThatIdDuplicateReturnsFalse() {
+    @DisplayName("Test if employee DOB is entered correctly into EmployeeDTO class")
+    void testIfEmployeeDobIsEnteredCorrectlyIntoEmployeeDtoClass() {
+        String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
+        EmployeeDTO employeeDTO = new EmployeeDTO(employee);
+
+        assertEquals(employeeDTO.getEmpID(), 133641);
+    }
+
+    @Test
+    @DisplayName("Test that idDuplicate returns false if duplicate")
+    void testThatIdDuplicateReturnsFalseIfDuplicate() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         String[] employee2 = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
         EmployeeDTO employeeDTO2 = new EmployeeDTO(employee2);
         ArrayList<EmployeeDTO> validEmployees = new ArrayList<>();
         validEmployees.add(employeeDTO);
-        idDuplicate(employeeDTO2);
-        assertFalse(idDuplicate(employeeDTO2));
-    }
-    
-    @Test
-    @DisplayName("TestName")
-    void testName() {
-        assertEquals(1,1);
+        idDuplicate(employeeDTO2, validEmployees);
+        assertTrue(idDuplicate(employeeDTO2, validEmployees));
     }
 }
