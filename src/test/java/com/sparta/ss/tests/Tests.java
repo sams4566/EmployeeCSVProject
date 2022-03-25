@@ -11,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -53,9 +55,12 @@ public class Tests {
     void testIfEmployeeDobIsEnteredCorrectlyIntoEmployeeDtoClass() {
         String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
         EmployeeDTO employeeDTO = new EmployeeDTO(employee);
-        employeeDTO.getDobSql().getClass();
-
-        assertEquals(employeeDTO.getDobSql().getClass(), Date);
+        String actual = "4/20/1995";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate dateInitial = LocalDate.parse(actual, formatter);
+        Date date = Date.valueOf(dateInitial);
+        assertEquals(employeeDTO.getDobSql(), date);
+        assertEquals(String.valueOf(employeeDTO.getDobSql().getClass()), "class java.sql.Date");
     }
 
     @Test
@@ -69,5 +74,14 @@ public class Tests {
         validEmployees.add(employeeDTO);
         idDuplicate(employeeDTO2, validEmployees);
         assertTrue(idDuplicate(employeeDTO2, validEmployees));
+    }
+
+    @Test
+    @DisplayName("Test that genderCorrect returns false if incorrect")
+    void testThatGenderCorrectReturnsFalseIfIncorrect() {
+        String[] employee = new String[] {"133641", "Mr.", "Chas", "F", "Hurdle", "M", "chas.hurdle@gmail.com", "4/20/1995", "5/28/2016", "45102"};
+        EmployeeDTO employeeDTO = new EmployeeDTO(employee);
+        genderCorrect(employeeDTO);
+        assertFalse(genderCorrect(employeeDTO));
     }
 }

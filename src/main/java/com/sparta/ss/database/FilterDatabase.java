@@ -56,7 +56,7 @@ public class FilterDatabase {
         return employees;
     }
 
-    public static int filterToDatabase(
+    public static EmployeesDAO filterToDatabase(
             ArrayList<EmployeeDTO> employees1,
             ArrayList<EmployeeDTO> employees2,
             ArrayList<EmployeeDTO> employees3,
@@ -116,6 +116,6 @@ public class FilterDatabase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return 2;
+        return employeesDAO;
     }
 }
