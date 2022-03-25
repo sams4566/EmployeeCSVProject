@@ -14,7 +14,7 @@ public class CorruptionChecking {
         }
     }
 
-    private static boolean idDuplicate(EmployeeDTO employeeDTO) {
+    public static boolean idDuplicate(EmployeeDTO employeeDTO) {
         for (EmployeeDTO i : validEmployees) {
             if (employeeDTO.getEmpID() == i.getEmpID()) {
                 return true;
