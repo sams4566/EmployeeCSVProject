@@ -1,7 +1,6 @@
 package com.sparta.ss.database;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class EmployeesDAO {
     public static Connection connection;

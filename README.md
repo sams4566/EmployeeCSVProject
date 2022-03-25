@@ -17,7 +17,7 @@ however depending on the users CPU.
 
 ## Requirements
 - This application works with Java 8 (earlier versions may not work correctly)
-- Requires MySQL: [MySQL Workbench][https://dev.mysql.com/downloads/]
+- Requires MySQL: [MySQL Workbench](https://dev.mysql.com/downloads/)
 
 ## Setup
 1) Copy the repository HTML link

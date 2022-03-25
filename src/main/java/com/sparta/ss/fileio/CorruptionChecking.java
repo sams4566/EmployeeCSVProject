@@ -1,8 +1,6 @@
 package com.sparta.ss.fileio;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class CorruptionChecking {

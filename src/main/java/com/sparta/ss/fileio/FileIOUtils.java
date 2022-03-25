@@ -2,11 +2,8 @@ package com.sparta.ss.fileio;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static com.sparta.ss.fileio.CorruptionChecking.corruptedEmployees;
 import static com.sparta.ss.fileio.CorruptionChecking.validEmployees;

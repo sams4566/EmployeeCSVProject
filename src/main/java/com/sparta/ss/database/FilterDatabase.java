@@ -4,7 +4,6 @@ import com.sparta.ss.fileio.EmployeeDTO;
 
 import java.util.ArrayList;
 
-
 public class FilterDatabase {
     public static ArrayList<EmployeeDTO> splitArrays(ArrayList<EmployeeDTO> employees, EmployeesDAO employeesDAO) {
         ArrayList<EmployeeDTO> employees1 = new ArrayList<EmployeeDTO>();

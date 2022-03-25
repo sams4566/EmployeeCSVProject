@@ -2,7 +2,6 @@ package com.sparta.ss.tests;
 
 import com.sparta.ss.fileio.CorruptionChecking;
 import com.sparta.ss.fileio.EmployeeDTO;
-import com.sparta.ss.fileio.FileIOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import static com.sparta.ss.fileio.CorruptionChecking.*;
 import static org.junit.jupiter.api.Assertions.*;
