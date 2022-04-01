@@ -19,7 +19,6 @@ public class FileIOUtils {
             while (line != null) {
                 String[] employeeData = line.split(",");
                 EmployeeDTO employeeDTO = new EmployeeDTO(employeeData);
-//                System.out.println(employeeDTO.getGender());
                 CorruptionChecking.checkEmployee(employeeDTO);
                 line = bufferedReader.readLine();
             }
